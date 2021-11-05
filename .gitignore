@@ -1,0 +1,9 @@
+node_modules
+public
+setupTests.ts
+reportWebVitals.ts
+react-app-env.d.ts
+*package-lock.json
+tsconfig.json
+.DS_Store
+.gitignore

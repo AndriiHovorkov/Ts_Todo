@@ -1,0 +1,29 @@
+
+.formBlock {
+    margin-top: 10px;
+    text-align: center;
+}
+.deleteBtn{
+    margin-left: auto;
+}
+
+.modal {
+    display: none;
+}
+/* .container {
+    width: 900px;
+    border: 1px black solid;
+    margin-left: auto;
+    margin-right: auto;
+} */
+.CardBlock{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+} 
+.cont {
+    margin-top: 50px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
