@@ -1,15 +1,14 @@
 import React, {FC} from 'react';
 import './App.css';
-import ActionCard from './Card/ActionCard';
-import UseContecstCopm from './ContextComponent/UseContext/useContecstCopm';
+import ActionCard from './component/Card/ActionCard';
+import TodoCopmonent from './component/TodoCopmonent/TodoCopmonent/ContecstCopm';
 
 
 const App: FC = () =>{
     return (
       <div>
-          <UseContecstCopm/>
+          <TodoCopmonent/>
           <ActionCard/>
-          
       </div>
         
     );

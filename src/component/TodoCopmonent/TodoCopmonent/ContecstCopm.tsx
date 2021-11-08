@@ -1,13 +1,13 @@
-// import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react'
-import   { getItem, IForm, ITitle,addItem, Fetch } from '../../hooks/useTodo';
+import   { getItem, IForm, ITitle,addItem, Fetch } from '../../../hooks/useTodo';
 import ConsumerComponent from '../ConsumerList/ConsumerComponent';
-import ContextStore,{ItemState} from './contextStore'
 import {Formik, Form, Field} from 'formik'
+import axios from 'axios';
+import ContextStore, { ItemState } from './contextStore';
 
 export const URL_POSTS ='https://jsonplaceholder.typicode.com/posts'
 
-function UseContecstCopm() {
+function TodoCopmonent() {
     const [item, setItem] = useState<ItemState>([
         {
             userId: 1,
@@ -36,11 +36,13 @@ function UseContecstCopm() {
             userId: Date.now()
         }
         const newItems = item.map(item => item.id === id ? newTodo : item);
-        const PATCH ="PATCH"
+        const PUT ="PUT"
 
-        Fetch(newTodo,id,URL_POSTS, PATCH)
-            .then((resp) => resp.json())
-            .then((data) => setItem(newItems));
+        Fetch(newTodo,id,URL_POSTS, PUT)
+            .then((resp) => {setItem(newItems)})
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     
@@ -50,7 +52,7 @@ function UseContecstCopm() {
     }
 
     function deleteTodoItem(id:number) {
-        fetch(URL_POSTS+id, {
+        axios(`${URL_POSTS}/${id}`, {
             method: 'DELETE',
         });
 
@@ -75,7 +77,7 @@ function UseContecstCopm() {
                     }}
                 >
                     <Form className='form' >
-                        <Field type="text" name='title' placeholder='title'/>
+                        <Field type="text" name='title' placeholder='title'/> 
                         <Field type="text" name='body' placeholder='body'/>
                         <button type ="submit">Save</button>
                     </Form>
@@ -85,4 +87,4 @@ function UseContecstCopm() {
     )
 }
 
-export default UseContecstCopm;
+export default TodoCopmonent;

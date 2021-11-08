@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import ContextStore,{ ItemState } from "../UseContext/contextStore"
+import ContextStore,{ ItemState } from "../TodoCopmonent/contextStore"
 import './ConsumerComponent.css'
 import { ListItem } from "./ListItem"
 
@@ -10,12 +10,13 @@ function ConsumerComponent({onDelete,updateItem}:any) {
     return (
         <div>
             <div className='container'>
-                {items.map(item => (
+                {items.map((item,index) => (
                     <ListItem
                         key={item.id}
                         onDelete={onDelete}
                         item={item}
                         updateItem={updateItem}
+                        index={index}
                     />
                 ))}
             </div>
