@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { IProps } from '../../../hooks/useTodo';
 import { KeepMountedModal } from './Modal';
 import Button from '@mui/material/Button';
+import { IProps } from '../../../Helper/interface';
 
 export const  ListItem:FC<IProps> =({onDelete,item,updateItem,index}) => {
 
@@ -14,7 +14,7 @@ export const  ListItem:FC<IProps> =({onDelete,item,updateItem,index}) => {
             {index + 1} - {item.title}
             <span className='deleteBtn'>
                 <Button onClick={deleteBtn} variant="contained" size="small">Delete</Button>
-                <KeepMountedModal updateItem ={updateItem} itemID={item.id}/>
+                <KeepMountedModal updateItem ={updateItem} itemID={item.id} item={item}/>
             </span>
         </li>
     )

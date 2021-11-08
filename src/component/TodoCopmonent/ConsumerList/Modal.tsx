@@ -3,8 +3,9 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { IModal, ITitle } from '../../../hooks/useTodo';
 import { TextField } from '@mui/material';
+import { IModal, ITitle } from '../../../Helper/interface';
+import { URL_POSTS } from '../../../Helper/url';
 
 
 const style = {
@@ -19,7 +20,7 @@ const style = {
     p: 4,
 };
 
-export const KeepMountedModal:FC<IModal> = ({updateItem, itemID}) => {
+export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -35,8 +36,7 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID}) => {
         });
     }
     function update() {
-        updateItem(itemID,thisTitle)
-        console.log(thisTitle)
+        updateItem(itemID,thisTitle,URL_POSTS)
         setTitle({title:''})
         setOpen(false);
 
@@ -53,13 +53,13 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID}) => {
             >
                 <Box sx={style}>
                 <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-                    Add text
+                    Old Title:{item.title}
                 </Typography>
                 <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
                     <div>
                         <TextField 
                             id="standard-basic" 
-                            label="Standard" 
+                            label="New Title" 
                             variant="standard" 
                             type='text' 
                             placeholder='Update title' 

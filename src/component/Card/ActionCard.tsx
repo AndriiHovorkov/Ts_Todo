@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { getItem } from '../../hooks/useTodo';
+import React, { FC, useEffect, useState } from 'react';
+import { getItem } from '../../Helper/api';
+import { PHOTO_URL } from '../../Helper/url';
 import ContextStore,{CardState} from './actionContext'
 import CardComponent from './CardComponent';
 
-const PHOTO_URL = 'https://picsum.photos/v2/list?page=2&limit=10'
-
-export default function ActionCard() {
+export const ActionCard: FC = () => {
 
   const [cards, setCards] = useState<CardState>([
     {
@@ -18,8 +17,12 @@ export default function ActionCard() {
     }
   ])
 
+const getState = async () => {
+  const arrImage = await getItem(PHOTO_URL)
+  setCards(arrImage)
+}
   useEffect(() => {
-    getItem(setCards, PHOTO_URL)
+    getState()
   },[])
 
   return (
@@ -28,4 +31,4 @@ export default function ActionCard() {
     </ContextStore.Provider>
   );
 }
-
+export default ActionCard

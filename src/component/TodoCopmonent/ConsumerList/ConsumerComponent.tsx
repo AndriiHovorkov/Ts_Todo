@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import ContextStore,{ ItemState } from "../TodoCopmonent/contextStore"
+import ContextStore,{ ItemState } from "../TodoComponent/contextStore"
 import './ConsumerComponent.css'
 import { ListItem } from "./ListItem"
 
