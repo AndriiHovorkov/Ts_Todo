@@ -3,7 +3,6 @@ import { IForm, ITitle } from "./interface";
 
 export const getItem = async (URL:string) : Promise<any> => {
     const { data } = await axios(URL)
-    console.log(data)
     return data
 }
 

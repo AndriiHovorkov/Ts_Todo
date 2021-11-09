@@ -45,7 +45,7 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
         });
     }, [item])
     return (
-        <div>
+        <span>
             <Button onClick={handleOpen}>Change text</Button>
             <Modal
                 keepMounted
@@ -74,6 +74,6 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
                     </Typography>
                 </Box>
             </Modal>
-        </div>
+        </span>
     );
 }
