@@ -1,4 +1,4 @@
-import { useContext} from "react"
+import { FC, useContext} from "react"
 import ContextStore,{ CardState } from "./actionContext"
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,11 +7,9 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-
-function CardComponent() {
-
+export const CardComponent: FC = () => {
     const cards = useContext<CardState>(ContextStore)
-    
+
     return (
         <div>
             <div className='cont'>
@@ -41,20 +39,3 @@ function CardComponent() {
         
     )
 }
-
-export default CardComponent
-
-// const [currentPage, setCurrentPage]:any = useState(1)
-//     const [countries, setCountries]:any  = useState(10)
-
-
-//     const lastCount = currentPage * countries
-//     const firstCount = lastCount - countries
-//     const currentCounter = countries.slice(firstCount,lastCount)
-
-//     const PageNumber = []
-//     const coun = Math.ceil(totalCountries / countries)
-
-//     for(let i=1; 1 < coun; i++) {
-//         PageNumber.push(i)
-//     }

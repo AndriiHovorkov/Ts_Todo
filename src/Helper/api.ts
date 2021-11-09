@@ -8,7 +8,7 @@ export const getItem = async (URL:string) : Promise<any> => {
     return data
 }
 
-export const addItem = async(newTodo:IForm, URL:string, setState:any,item:ItemState) => {
+export const addItem = async(newTodo:IForm, URL:string) => {
     newTodo = { ...newTodo};
     
     const { data } = await axios(URL, {

@@ -1,14 +1,12 @@
 import { FC, useEffect, useState } from 'react'
 import { getItem, addItem, updateItem } from '../../../Helper/api';
-import ConsumerComponent from '../ConsumerList/ConsumerComponent';
-import {Formik, Form, Field} from 'formik'
+import {useFormik} from 'formik'
 import axios from 'axios';
 import ContextStore, { ItemState } from './contextStore';
 import { IForm, ITitle } from '../../../Helper/interface';
 import { URL_POSTS } from '../../../Helper/url';
-// import { TextField } from '@mui/material';
-
-
+import { ConsumerComponent } from '../ConsumerList/ConsumerComponent';
+import { Button, TextField } from '@mui/material';
 
 export const TodoComponent: FC = () => {
     const [items, setItems] = useState<ItemState>([
@@ -40,11 +38,9 @@ export const TodoComponent: FC = () => {
         const newItems:any = items.map(item => item.id === id ? newTodo : item);
         setItems(newItems)
     }
-
     
-    const onSubmit = async (values:any) => {
-        console.log(values)
-        const newTodo = await addItem(values, URL_POSTS, setItems, items);
+    const onSubmitTitle = async (values:any) => {
+        const newTodo = await addItem(values, URL_POSTS);
         setItems([...items,newTodo])
     }
 
@@ -56,41 +52,40 @@ export const TodoComponent: FC = () => {
         setItems(newItems);
     }
 
+    const FormikMU = () => {
+        const formik = useFormik({
+            initialValues:thisInput ,
+            onSubmit: (values, actions) => {
+                onSubmitTitle(values)
+                actions.resetForm();
+            },
+        });
+
+        return (
+            <div className='formBlock'>
+                <form className='form' onSubmit={formik.handleSubmit} >
+                    <TextField
+                        fullWidth
+                        id="title"
+                        name="title"
+                        label="Add new title"
+                        value={formik.values.title}
+                        onChange={formik.handleChange}
+                        rows={4}
+                    />
+                    <Button type ="submit" variant="contained" size="large">Save</Button>
+                </form>
+            </div>
+        )
+    }
+
     return(
         <ContextStore.Provider value={items}>
             <ConsumerComponent
                 onDelete={deleteTodoItem}  
                 updateItem={update}
             />
-            <div className='formBlock'>
-                <Formik 
-                    initialValues={thisInput} 
-                    onSubmit={(values, actions) => {
-                        onSubmit(values)
-                        actions.resetForm();
-                    }}
-                >
-                    <Form className='form' >
-                        <Field type="text" name='title' placeholder='title'/> 
-                        <Field type="text" name='body' placeholder='body'/>
-                        {/* <TextField 
-                            label="title" 
-                            type='text' 
-                            placeholder='title' 
-                            name='title'    
-                        />
-                        <TextField 
-                            label="body" 
-                            type='text' 
-                            placeholder='body' 
-                            name='body'    
-                        /> */}
-                        <button type ="submit">Save</button>
-                    </Form>
-                </Formik>
-            </div>
+            <FormikMU/>
         </ContextStore.Provider>
     )
 }
-
-export default TodoComponent;

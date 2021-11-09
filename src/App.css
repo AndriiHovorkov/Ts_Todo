@@ -1,21 +1,17 @@
 
 .formBlock {
+    width: 900px;
     margin-top: 10px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .deleteBtn{
     margin-left: auto;
 }
-
 .modal {
     display: none;
 }
-/* .container {
-    width: 900px;
-    border: 1px black solid;
-    margin-left: auto;
-    margin-right: auto;
-} */
 .CardBlock{
     display: flex;
     flex-direction: row;
@@ -30,4 +26,15 @@
 .button{
     display: inline-block;
     margin-top: 18px;
+    margin-left: 20px;
+}
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-grow: 1
+    
+    /* flex-wrap: wrap; */
 }

@@ -1,13 +1,5 @@
 import {createContext} from "react";
 
-export interface ICards {
-    id: number,
-    author: string,
-    width: number,
-    height: number,
-    url: string,
-    download_url: string
-}
 const cardState = [
     {
         id: "0",
@@ -20,7 +12,5 @@ const cardState = [
 ]
 
 export type CardState = typeof cardState;
-
 const context = createContext<typeof cardState>(cardState)
-
 export default context
