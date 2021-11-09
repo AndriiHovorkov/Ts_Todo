@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import './App.css';
 import {ActionCard }from './component/Card/ActionCard';
-import { TodoComponent } from './component/TodoCopmonent/TodoComponent/ContecstCopm';
+import { TodoComponent } from './component/TodoCopmonent/TodoComponent/ContecstComp';
 
 const App: FC = () =>{
   return (

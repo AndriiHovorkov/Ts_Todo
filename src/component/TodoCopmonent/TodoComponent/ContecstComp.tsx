@@ -7,6 +7,7 @@ import { IForm, ITitle } from '../../../Helper/interface';
 import { URL_POSTS } from '../../../Helper/url';
 import { ConsumerComponent } from '../ConsumerList/ConsumerComponent';
 import { Button, TextField } from '@mui/material';
+import './ContecstComp.css'
 
 export const TodoComponent: FC = () => {
     const [items, setItems] = useState<ItemState>([
@@ -72,8 +73,9 @@ export const TodoComponent: FC = () => {
                         value={formik.values.title}
                         onChange={formik.handleChange}
                         rows={4}
+                        
                     />
-                    <Button type ="submit" variant="contained" size="large">Save</Button>
+                    <Button type ="submit" variant="contained" size="large" className="Add_Button">Save</Button>
                 </form>
             </div>
         )

@@ -69,7 +69,7 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
                                 variant="standard"
                             />
                             <span className="button">
-                                <Button onClick={update} variant="contained" size="small">Save</Button>
+                                <Button onClick={update} variant="contained" size="small" >Save</Button>
                             </span>
                     </Typography>
                 </Box>
