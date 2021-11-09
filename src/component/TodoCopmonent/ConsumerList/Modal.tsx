@@ -45,7 +45,7 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
         });
     }, [item])
     return (
-        <span>
+        <div>
             <Button onClick={handleOpen}>Change text</Button>
             <Modal
                 keepMounted
@@ -58,7 +58,7 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
                     <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
                         Update title
                     </Typography>
-                    <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+                    <Typography component={'span'} id="keep-mounted-modal-description" sx={{ mt: 2 }}>
                             <TextField
                                 id="standard-multiline-flexible"
                                 label="Title"
@@ -74,6 +74,6 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
                     </Typography>
                 </Box>
             </Modal>
-        </span>
+        </div>
     );
 }

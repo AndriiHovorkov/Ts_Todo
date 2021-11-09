@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ItemState } from "../component/TodoCopmonent/TodoComponent/contextStore";
 import { IForm, ITitle } from "./interface";
 
 export const getItem = async (URL:string) : Promise<any> => {
