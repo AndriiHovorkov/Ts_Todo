@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
-import { getItem } from '../../Helper/api';
-import { PHOTO_URL } from '../../Helper/url';
+import { getItem } from '../../helper/api';
+import { PHOTO_URL } from '../../helper/url';
 import ContextStore,{CardState} from './actionContext'
 import {CardComponent} from './CardComponent';
 

@@ -4,8 +4,9 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField } from '@mui/material';
-import { IModal, ITitle } from '../../../Helper/interface';
-import { URL_POSTS } from '../../../Helper/url';
+import { IModal, ITitle } from '../../../helper/interface';
+import { URL_POSTS } from '../../../helper/url';
+import { modalStyles } from './ModalStyles';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -20,6 +21,8 @@ const style = {
 };
 
 export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
+    const classes = modalStyles()
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -68,7 +71,7 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
                                 onChange={changeHendler}
                                 variant="standard"
                             />
-                            <span className="button">
+                            <span className={classes.button}>
                                 <Button onClick={update} variant="contained" size="small" >Save</Button>
                             </span>
                     </Typography>

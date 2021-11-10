@@ -1,15 +1,18 @@
 import { FC, useEffect, useState } from 'react'
-import { getItem, addItem, updateItem } from '../../../Helper/api';
+import { getItem, addItem, updateItem } from '../../../helper/api';
 import {useFormik} from 'formik'
 import axios from 'axios';
 import ContextStore, { ItemState } from './contextStore';
-import { IForm, ITitle } from '../../../Helper/interface';
-import { URL_POSTS } from '../../../Helper/url';
+import { IForm, ITitle } from '../../../helper/interface';
+import { URL_POSTS } from '../../../helper/url';
 import { ConsumerComponent } from '../ConsumerList/ConsumerComponent';
 import { Button, TextField } from '@mui/material';
 import './ContecstComp.css'
+import { todoStyles } from './TodoStyles';
 
 export const TodoComponent: FC = () => {
+    const classes = todoStyles()
+
     const [items, setItems] = useState<ItemState>([
         {
             userId: 1,
@@ -63,8 +66,8 @@ export const TodoComponent: FC = () => {
         });
 
         return (
-            <div className='formBlock'>
-                <form className='form' onSubmit={formik.handleSubmit} >
+            <div className={classes.formBlock}>
+                <form className={classes.form} onSubmit={formik.handleSubmit} >
                     <TextField
                         fullWidth
                         id="title"

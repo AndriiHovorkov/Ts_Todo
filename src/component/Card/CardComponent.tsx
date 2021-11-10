@@ -6,13 +6,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { cardStyles } from "./CardStyle";
 
 export const CardComponent: FC = () => {
+    const classes  =cardStyles()
     const cards = useContext<CardState>(ContextStore)
 
     return (
         <div>
-            <div className='cont'>
+            <div className={classes.cont}>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     {cards.map(item => (
                         <Grid item xs={4} key={item.id}>
