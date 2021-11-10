@@ -1,5 +1,4 @@
-import  {makeStyles} from '@mui/styles';
-
+import  { makeStyles } from '@mui/styles';
 
 export const cardStyles = makeStyles(theme => ({
     cont: {

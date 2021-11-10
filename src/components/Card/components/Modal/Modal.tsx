@@ -1,11 +1,11 @@
-import React,{FC, useEffect} from 'react';
+import React,{ FC, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField } from '@mui/material';
-import { IModal, ITitle } from '../../../helper/interface';
-import { URL_POSTS } from '../../../helper/url';
+import { IModal, ITitle } from '../../../../helpers/interface';
+import { URL_POSTS } from '../../../../helpers/constants';
 import { modalStyles } from './ModalStyles';
 
 const style = {
@@ -21,7 +21,7 @@ const style = {
 };
 
 export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
-    const classes = modalStyles()
+    const classes = modalStyles();
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -29,7 +29,8 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
 
     const [thisTitle, setTitle] = React.useState<ITitle>({
         title:'test',
-    })
+        body: 'test'
+    });
     function changeHendler(e:any) {
         setTitle({
             ...thisTitle,
@@ -37,16 +38,17 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
         });
     }
     function update() {
-        updateItem(itemID,thisTitle,URL_POSTS)
-        setTitle({title:''})
+        updateItem(itemID,thisTitle,URL_POSTS);
+        setTitle({title:'', body:''});
         setOpen(false);
     }
 
     useEffect(() => {
         setTitle({
-            title:item.title
+            title:item.title,
+            body:'test'
         });
-    }, [item])
+    }, [item]);
     return (
         <span>
             <Button onClick={handleOpen}>Change text</Button>
@@ -79,4 +81,4 @@ export const KeepMountedModal:FC<IModal> = ({updateItem, itemID, item}) => {
             </Modal>
         </span>
     );
-}
+};

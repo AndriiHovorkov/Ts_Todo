@@ -1,7 +1,6 @@
-import  {makeStyles} from '@mui/styles';
+import  { makeStyles } from '@mui/styles';
 
-
-export const todoStyles = makeStyles(theme => ({
+export const formStyles = makeStyles(theme => ({
     formBlock: {
         width: 900,
         marginTop: 10,

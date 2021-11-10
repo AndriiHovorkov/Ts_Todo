@@ -1,14 +1,10 @@
-import { FC, useContext } from "react"
-import ContextStore,{ ItemState } from "../TodoComponent/contextStore"
-import { ListItem } from "../List/ListItem"
-import { Consum } from "../../../helper/interface"
-import { consStyles } from "./ConsumStypel"
+import { FC } from "react";
+import { ListItem } from "../ListItem/ListItem";
+import {itemProps } from "../../../../helpers/interface";
+import { todoListStyle } from "./todoListStyle";
 
-export const ConsumerComponent: FC<Consum> = ({onDelete,updateItem}) => {
-    const classes = consStyles();
-
-    const items = useContext<ItemState>(ContextStore)
-
+export const TodoList: FC<itemProps> = ({onDelete, updateItem, items}) => {
+    const classes = todoListStyle();
     return (
         <div>
             <div className={classes.container}>
@@ -23,5 +19,5 @@ export const ConsumerComponent: FC<Consum> = ({onDelete,updateItem}) => {
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};

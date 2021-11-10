@@ -1,6 +1,6 @@
-import  {makeStyles} from '@mui/styles';
+import  { makeStyles } from '@mui/styles';
 
-export const consStyles = makeStyles(theme => ({
+export const todoListStyle = makeStyles(theme => ({
     container: {
         width: 900,
         border: '1px black solid',

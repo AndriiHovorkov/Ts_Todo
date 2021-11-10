@@ -1,7 +1,6 @@
-import  {makeStyles} from '@mui/styles';
+import  { makeStyles } from '@mui/styles';
 
-
-export const ListStyles = makeStyles(theme => ({
+export const listStyles = makeStyles(theme => ({
     items: {
         border: '1px black solid',
         marginBottom: 10,
@@ -13,5 +12,4 @@ export const ListStyles = makeStyles(theme => ({
     deleteBtn: {
         marginLeft: 'auto'
     }
-    
 }));

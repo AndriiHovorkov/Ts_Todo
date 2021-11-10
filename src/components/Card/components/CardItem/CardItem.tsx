@@ -1,25 +1,23 @@
-import { FC, useContext} from "react"
-import ContextStore,{ CardState } from "./actionContext"
+import { FC } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { cardStyles } from "./CardStyle";
+import { cardStyles } from "../../cardStyles";
+import { cardsProps } from "../../../../helpers/interface";
 
-export const CardComponent: FC = () => {
-    const classes  =cardStyles()
-    const cards = useContext<CardState>(ContextStore)
+export const CardItem: FC<cardsProps>= ({cards}) => {
+    const classes  = cardStyles();
 
     return (
-        <div>
-            <div className={classes.cont}>
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    {cards.map(item => (
-                        <Grid item xs={4} key={item.id}>
-                            <Card sx={{ maxWidth: 345 }}>
-                                <CardActionArea>
+        <div className={classes.cont}>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                {cards.map(item => (
+                    <Grid item xs={4} key={item.id}>
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardActionArea>
                                 <CardMedia
                                     component="img"
                                     height="140"
@@ -31,13 +29,11 @@ export const CardComponent: FC = () => {
                                         Author: {item.author}
                                     </Typography>
                                 </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
-            </div>
+                            </CardActionArea>
+                        </Card>
+                    </Grid>
+                ))}
+            </Grid>
         </div>
-        
     )
 }

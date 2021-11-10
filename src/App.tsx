@@ -1,15 +1,14 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import './App.css';
-import {ActionCard }from './component/Card/ActionCard';
-import { TodoComponent } from './component/TodoCopmonent/TodoComponent/ContecstComp';
+import {Card }from './components/Card/Card';
+import {TodoComponent} from './components/Todo/Todo';
 
 const App: FC = () =>{
   return (
     <div>
       <TodoComponent/>
-      <ActionCard/>
+      <Card/>
     </div>
   );
 }
-
 export default App;

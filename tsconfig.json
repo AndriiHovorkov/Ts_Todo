@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/..store", "src/component/TodoCopmonent/...Data/..DataProvider.tsx", "src/...component/..List", "src/component/TodoCopmonent/...Form"  ]
+, "src/..store", "src/components/Todo/TodoList/...Data/..DataProvider.tsx", "src/...component/..List", "src/components/Todo/TodoList/...Form"  ]
 }
