@@ -1,14 +1,12 @@
-import {FC} from 'react';
+import React, { FC } from 'react';
 import './App.css';
-import {Card }from './components/Card/Card';
-import {TodoComponent} from './components/Todo/Todo';
+import { Todo } from './components/Todo/Todo';
+import { Cards } from './components/Card/Cards';
 
-const App: FC = () =>{
-  return (
-    <div>
-      <TodoComponent/>
-      <Card/>
-    </div>
-  );
-}
+const App: FC = () => (
+  <div>
+    <Todo />
+    <Cards />
+  </div>
+);
 export default App;

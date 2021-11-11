@@ -7,3 +7,4 @@ react-app-env.d.ts
 tsconfig.json
 .DS_Store
 .gitignore
+workspace.code-workspace

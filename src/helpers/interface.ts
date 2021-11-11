@@ -1,35 +1,41 @@
-import { Method } from "axios";
+import { Method } from 'axios';
 
-type onDelete = (id:number) => void;
-type onSubmit = (values:IForm) => void;
-type updateItem =(
-        id:number, 
-        thisTitle:IForm,
-        URL:string
-    ) => void;
-
+export interface ITodo {
+  userId: number ;
+  title:string;
+  id: number ;
+  body: string;
+}
 export interface IModal {
-    updateItem:updateItem;
+    updateItem: (
+      id: number,
+      thisTitle: IForm,
+      URL: string
+    ) => void;
     itemID: number;
-    item:IitemState;
-};
+    items: ITodo;
+}
 
 export interface IProps {
-    onDelete:onDelete;
-    item:IitemState;
-    updateItem:updateItem;
-    index:number;
-};
+    onDelete: (id:number) => void;
+    items: ITodo;
+    updateItem: (
+      id: number,
+      thisTitle: IForm,
+      URL: string
+    ) => void;
+    index: number;
+}
 
 export interface ITitle {
     title: string;
     body: string;
-};
+}
 
 export interface IForm {
     title:string;
     body: string;
-};
+}
 
 export interface ICards {
     id: number;
@@ -38,59 +44,44 @@ export interface ICards {
     height: number;
     url: string;
     download_url: string;
-};
+}
 
-export interface ITodo {
-    userId: number | null;
-    title:string;
-    id: number | null;
-    body: string;
-};
-
-export interface Consum {
-    onDelete:onDelete;
-    updateItem:updateItem;
-};
+export interface IConsum {
+    onDelete:(id:number) => void ;
+    updateItem:(
+      id: number,
+      thisTitle: IForm,
+      URL: string
+    ) => void;
+}
 
 export interface Iadd {
     values:IForm;
     URL:string;
-};
+}
 
 export interface Iupdate {
     id:number;
     thisTitle:ITitle;
-    URL:string; 
+    URL:string;
     method:Method;
-};
+}
 
-export interface IcardState {
-    id: number;
-    author: string;
-    width: number;
-    height: number;
-    url: string;
-    download_url: string;
-};
+export interface IcardsProps {
+    cards: ICards[];
+}
 
-export interface cardsProps {
-    cards: IcardState[];
-};
+export interface IitemProps {
+    items: ITodo[];
+    onDelete:(id:number) => void ;
+    updateItem:(
+      id: number,
+      thisTitle: IForm,
+      URL: string
+    ) => void;
+}
 
-export interface IitemState{
-    userId: number;
-    title: string;
-    id: number;
-    body: string;
-};
-
-export interface itemProps {
-    items: IitemState[];
-    onDelete:onDelete;
-    updateItem:updateItem;
-};
-
-export interface formState{
+export interface IformState{
     thisInput:IForm;
-    onSubmitTitle:onSubmit;
-};
+    onSubmitTitle:(values:IForm) => void ;
+}
