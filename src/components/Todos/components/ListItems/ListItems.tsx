@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Button from '@mui/material/Button';
 import { IProps } from '../../../../helpers/interface';
-import { KeepMountedModal } from '../../../Card/components/KeepMountedModal/KeepMountedModal';
+import { UpdateModal } from '../../../Cards/components/UpdateModal/UpdateModal';
 import { listStyles } from './listStyles';
 
 export const ListItems:FC<IProps> = ({
@@ -22,7 +22,7 @@ export const ListItems:FC<IProps> = ({
       {items.title}
       <span className={classes.deleteBtn}>
         <Button onClick={deleteBtn} variant="contained" size="small">Delete</Button>
-        <KeepMountedModal updateItem={updateItem} itemID={items.id} items={items} />
+        <UpdateModal updateItem={updateItem} itemID={items.id} items={items} />
       </span>
     </li>
   );

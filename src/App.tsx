@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import './App.css';
-import { Todo } from './components/Todo/Todo';
-import { Cards } from './components/Card/Cards';
+import { Todos } from './components/Todos/Todos';
+import { Cards } from './components/Cards/Cards';
 
 const App: FC = () => (
   <div>
-    <Todo />
+    <Todos />
     <Cards />
   </div>
 );

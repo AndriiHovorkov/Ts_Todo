@@ -6,6 +6,7 @@ export interface ITodo {
   id: number ;
   body: string;
 }
+
 export interface IModal {
     updateItem: (
       id: number,
@@ -55,23 +56,23 @@ export interface IConsum {
     ) => void;
 }
 
-export interface Iadd {
+export interface IAdd {
     values:IForm;
     URL:string;
 }
 
-export interface Iupdate {
+export interface IUpdate {
     id:number;
-    thisTitle:ITitle;
+    newTitle:ITitle;
     URL:string;
     method:Method;
 }
 
-export interface IcardsProps {
+export interface ICardsProps {
     cards: ICards[];
 }
 
-export interface IitemProps {
+export interface IItemProps {
     items: ITodo[];
     onDelete:(id:number) => void ;
     updateItem:(
@@ -81,7 +82,7 @@ export interface IitemProps {
     ) => void;
 }
 
-export interface IformState{
-    thisInput:IForm;
+export interface IFormState{
+    input:IForm;
     onSubmitTitle:(values:IForm) => void ;
 }

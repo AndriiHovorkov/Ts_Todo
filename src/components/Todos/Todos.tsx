@@ -6,10 +6,10 @@ import {
 } from '../../helpers/interface';
 import { URL_POSTS } from '../../helpers/constants';
 import { TodosList } from './components/TodosList/TodosList';
-import './todo.css';
+import './todos.css';
 import { FormikMaterial } from './components/FormikMaterial/FormikMaterial';
 
-export const Todo: FC = () => {
+export const Todos: FC = () => {
   const [items, setItems] = useState<ITodo[]>([
     {
       userId: 0,
@@ -19,7 +19,7 @@ export const Todo: FC = () => {
     },
   ]);
 
-  const [thisInput] = useState<IForm>({
+  const [input] = useState<IForm>({
     title: '',
     body: '',
   });
@@ -32,10 +32,10 @@ export const Todo: FC = () => {
     getState();
   }, []);
 
-  const update = async (id:number, thisTitle:ITitle, URL:string): Promise<void> => {
+  const update = async (id:number, newTitle:ITitle, URL:string): Promise<void> => {
     const method = 'PUT';
     const newTodo = await updateItem({
-      id, thisTitle, URL, method,
+      id, newTitle, URL, method,
     });
     const newItems = items.map((item) => (item.id === id ? newTodo : item));
     setItems(newItems as ITodo[]);
@@ -63,7 +63,7 @@ export const Todo: FC = () => {
         updateItem={update}
       />
       <FormikMaterial
-        thisInput={thisInput}
+        input={input}
         onSubmitTitle={onSubmitTitle}
       />
     </div>

@@ -8,37 +8,24 @@ import { IModal, ITitle } from '../../../../helpers/interface';
 import { URL_POSTS } from '../../../../helpers/constants';
 import { modalStyles } from './modalStyles';
 
-const style = {
-  position: 'absolute' as const,
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid blue',
-  boxShadow: 24,
-  p: 4,
-};
-
-export const KeepMountedModal:FC<IModal> = ({ updateItem, itemID, items }) => {
+export const UpdateModal:FC<IModal> = ({ updateItem, itemID, items }) => {
   const classes = modalStyles();
-
   const [open, setOpen] = React.useState(false);
-  const handleOpen = ():void => setOpen(true);
-  const handleClose = ():void => setOpen(false);
+  const handleOpen = (): void => setOpen(true);
+  const handleClose = (): void => setOpen(false);
 
   const [thisTitle, setTitle] = React.useState<ITitle>({
     title: 'test',
     body: 'test',
   });
 
-  const changeHendler = (e:React.ChangeEvent<HTMLInputElement>):void => {
+  const changeHendler = (e:React.ChangeEvent<HTMLInputElement>): void => {
     setTitle({
       ...thisTitle,
       [e.target.name]: e.target.value,
     });
   };
-  const update = ():void => {
+  const saveChange = (): void => {
     updateItem(itemID, thisTitle, URL_POSTS);
     setTitle({ title: '', body: '' });
     setOpen(false);
@@ -60,7 +47,7 @@ export const KeepMountedModal:FC<IModal> = ({ updateItem, itemID, items }) => {
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
-        <Box sx={style}>
+        <Box className={classes.box}>
           <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
             Update title
           </Typography>
@@ -75,7 +62,7 @@ export const KeepMountedModal:FC<IModal> = ({ updateItem, itemID, items }) => {
               variant="standard"
             />
             <span className={classes.button}>
-              <Button onClick={update} variant="contained" size="small">Save</Button>
+              <Button onClick={saveChange} variant="contained" size="small">Save</Button>
             </span>
           </Typography>
         </Box>

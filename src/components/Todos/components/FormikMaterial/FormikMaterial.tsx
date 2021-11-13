@@ -1,14 +1,14 @@
 import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import React, { FC } from 'react';
-import { IformState } from '../../../../helpers/interface';
+import { IFormState } from '../../../../helpers/interface';
 import { formStyles } from './formStyle';
 
-export const FormikMaterial:FC<IformState> = ({ thisInput, onSubmitTitle }) => {
+export const FormikMaterial: FC<IFormState> = ({ input, onSubmitTitle }) => {
   const classes = formStyles();
 
   const formik = useFormik({
-    initialValues: thisInput,
+    initialValues: input,
     onSubmit: (values, actions) => {
       onSubmitTitle(values);
       actions.resetForm();
@@ -27,7 +27,7 @@ export const FormikMaterial:FC<IformState> = ({ thisInput, onSubmitTitle }) => {
           onChange={formik.handleChange}
           rows={4}
         />
-        <Button type="submit" variant="contained" size="large" className="Add_Button">Save</Button>
+        <Button type="submit" variant="contained" size="large">Save</Button>
       </form>
     </div>
   );

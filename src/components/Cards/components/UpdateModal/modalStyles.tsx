@@ -6,4 +6,13 @@ export const modalStyles = makeStyles(() => ({
     marginTop: 18,
     marginLeft: 20,
   },
+  box: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    border: '2px solid blue',
+    padding: 4,
+  },
 }));

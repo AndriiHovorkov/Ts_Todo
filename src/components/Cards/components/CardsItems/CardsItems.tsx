@@ -6,10 +6,10 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
-import { IcardsProps } from '../../../../helpers/interface';
+import { ICardsProps } from '../../../../helpers/interface';
 import { cardsItemStyles } from './cardItemStyle';
 
-export const CardItem: FC<IcardsProps> = ({ cards }) => {
+export const CardsItems: FC<ICardsProps> = ({ cards }) => {
   const classes = cardsItemStyles();
 
   return (
@@ -23,7 +23,7 @@ export const CardItem: FC<IcardsProps> = ({ cards }) => {
                   component="img"
                   height="140"
                   image={item.download_url}
-                  alt="green iguana"
+                  alt="image"
                 />
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">

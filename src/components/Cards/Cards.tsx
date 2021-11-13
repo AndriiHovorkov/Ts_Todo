@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { getItems } from '../../helpers/api';
 import { PHOTO_URL } from '../../helpers/constants';
 import { ICards } from '../../helpers/interface';
-import { CardItem } from './components/CardItems/CardItems';
+import { CardsItems } from './components/CardsItems/CardsItems';
 
 export const Cards: FC = () => {
   const [cards, setCards] = useState<ICards[]>([]);
@@ -16,6 +16,6 @@ export const Cards: FC = () => {
   }, []);
 
   return (
-    <CardItem cards={cards} />
+    <CardsItems cards={cards} />
   );
 };

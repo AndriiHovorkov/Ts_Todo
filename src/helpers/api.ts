@@ -1,28 +1,28 @@
 import axios from 'axios';
 import {
-  Iadd, ICards, ITodo, Iupdate,
+  IAdd, IUpdate,
 } from './interface';
 
-export const getItems = async (URL:string): Promise<ICards[] | ITodo[]> => {
+export const getItems = async<T>(URL: string): Promise<T | null> => {
   const { data } = await axios(URL);
   return data;
 };
 
-export const addItem = async ({ values, URL }:Iadd): Promise<void> => {
-  const thisTodo = { ...values };
+export const addItem = async ({ values, URL }: IAdd): Promise<void> => {
+  const newTodo = { ...values };
 
   const { data } = await axios(URL, {
     method: 'POST',
-    data: JSON.stringify(thisTodo),
+    data: JSON.stringify(newTodo),
     headers: { 'Content-Type': 'application/json' },
   });
   return data;
 };
 
 export const updateItem = async ({
-  id, thisTitle, URL, method,
-}:Iupdate): Promise<void> => {
-  const { title } = thisTitle;
+  id, newTitle, URL, method,
+}: IUpdate): Promise<void> => {
+  const { title } = newTitle;
   const newTodo = {
     title,
     id,
