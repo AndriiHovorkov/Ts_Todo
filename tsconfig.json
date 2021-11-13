@@ -20,7 +20,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-, "src/..store", "src/component/TodoCopmonent/...Data/..DataProvider.tsx", "src/...component/..List", "src/component/TodoCopmonent/...Form"  ]
+  "include": ["src/**/*"],
 }
