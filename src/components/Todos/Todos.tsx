@@ -6,7 +6,7 @@ import {
 } from '../../helpers/interface';
 import { URL_POSTS } from '../../helpers/constants';
 import { TodosList } from './components/TodosList/TodosList';
-import './todos.css';
+import './styles.css';
 import { FormikMaterial } from './components/FormikMaterial/FormikMaterial';
 
 export const Todos: FC = () => {
